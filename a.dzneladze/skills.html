@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="სანდრო ძნელაძის ტექნიკური უნარები: სემანტიკური HTML5, ხელოვნური ინტელექტის ინსტრუმენტები, დეველოპერის ხელსაწყოები.">
+    <meta name="keywords" content="სანდრო ძნელაძე, უნარები, HTML5, სემანტიკური თეგები, AI, ტექნოლოგიები, Git">
+    <meta name="author" content="სანდრო ძნელაძე">
+    <title>სანდრო ძნელაძე — პორტფოლიო | ტექნიკური უნარები</title>
+
+    <!-- Google Fonts: Noto Sans Georgian & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Official Tailwind CSS Browser CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Georgian"', 'Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        progress {
+            accent-color: #4f46e5;
+        }
+        progress::-webkit-progress-bar {
+            background-color: #e2e8f0;
+            border-radius: 9999px;
+        }
+        progress::-webkit-progress-value {
+            background-color: #4f46e5;
+            border-radius: 9999px;
+        }
+        progress::-moz-progress-bar {
+            background-color: #4f46e5;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- საიტის მთავარი თავფურცელი (Header) -->
+    <header id="top" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                
+                <!-- ლოგო და სათაური -->
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white font-black text-lg shadow-md shadow-indigo-200 group-hover:scale-105 transition-transform">
+                            სძ
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors">სანდრო ძნელაძე</h1>
+                            <p class="hidden sm:block text-xs text-slate-500 font-medium"><strong>პროფესია:</strong> დამწყები ვებ-დეველოპერი | IT &amp; AI ენთუზიასტი</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- მთავარი ნავიგაცია (Desktop Navigation) -->
+                <nav aria-label="მთავარი მენიუ" class="hidden md:flex items-center gap-1.5 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200/60">
+                    <a href="index.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">მთავარი გვერდი</a>
+                    <a href="about.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">ჩემ შესახებ</a>
+                    <a href="projects.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">პროექტები</a>
+                    <a href="skills.html" class="px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white shadow-sm flex items-center gap-1.5 transition">ტექნიკური უნარები</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">კონტაქტი</a>
+                </nav>
+
+                <!-- მობილურის მენიუს ღილაკი -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" aria-label="მთავარი მენიუს გადართვა" class="p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-indigo-600 hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- მობილური მენიუ -->
+        <nav id="mobile-menu" aria-label="მობილური მენიუ" class="hidden md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md px-4 py-3 space-y-1 shadow-lg">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 px-3 py-1"><strong>ნავიგაცია:</strong></p>
+            <ul class="space-y-1 list-none p-0 m-0">
+                <li><a href="index.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">მთავარი გვერდი</a></li>
+                <li><a href="about.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">ჩემ შესახებ</a></li>
+                <li><a href="projects.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">პროექტები</a></li>
+                <li><span class="block px-3 py-2.5 rounded-xl text-sm font-semibold bg-indigo-600 text-white">[ ტექნიკური უნარები ] (თქვენ იმყოფებით აქ)</span></li>
+                <li><a href="contact.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">კონტაქტი</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- მთავარი შინაარსობრივი ნაწილი (Main) -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-16">
+
+        <!-- გვერდის სათაურის ბლოკი -->
+        <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm">
+            <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">ცოდნა &amp; კომპეტენციები</span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
+                ჩემი ტექნიკური უნარები &amp; კომპეტენციები
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed mt-3 max-w-3xl">
+                ტექნოლოგიური სფერო მუდმივ განვითარებას მოითხოვს. ქვემოთ წარმოდგენილია ჩემი ამჟამინდელი ცოდნის დონეები, 
+                რომლებიც შეძენილია როგორც საუნივერსიტეტო სწავლების, ისე დამოუკიდებელი პრაქტიკისა და AI-ით გაძლიერებული მუშაობის პროცესში.
+            </p>
+        </div>
+
+        <!-- სექცია 1: ვებ-ტექნოლოგიები -->
+        <section id="web-standards" class="space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">ნაბიჯი 01</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">1. ვებ-სტანდარტები &amp; მარკირება</h3>
+                <p class="text-sm text-slate-500 mt-1">სემანტიკური მარკირებისა და ვებ-არქიტექტურის ცოდნის დონეები:</p>
+            </div>
+
+            <!-- კომპეტენციების ცხრილი -->
+            <div class="overflow-x-auto rounded-3xl border border-slate-200/80 bg-white shadow-sm">
+                <table class="w-full text-left border-collapse text-sm text-slate-700" summary="ვებ-ტექნოლოგიების ცოდნის დონეების შეფასება">
+                    <caption class="text-left font-bold text-slate-900 p-5 bg-slate-50/70 border-b border-slate-200 text-sm">
+                        ცხრილი 4: ვებ-ტექნოლოგიების კომპეტენციების მატრიცა
+                    </caption>
+                    <thead class="bg-slate-100/70 text-slate-700 text-xs uppercase font-semibold tracking-wider">
+                        <tr>
+                            <th scope="col" class="py-4 px-6 border-b border-slate-200">ტექნოლოგიური კომპონენტი</th>
+                            <th scope="col" class="py-4 px-6 border-b border-slate-200">ცოდნის დონე</th>
+                            <th scope="col" class="py-4 px-6 border-b border-slate-200 min-w-[200px]">პროგრესის ინდიკატორი</th>
+                            <th scope="col" class="py-4 px-6 border-b border-slate-200">შეფასება</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="py-4 px-6 font-bold text-slate-900">HTML5 სემანტიკური თეგები</td>
+                            <td class="py-4 px-6 font-semibold text-indigo-600">95%</td>
+                            <td class="py-4 px-6">
+                                <div class="flex items-center gap-3">
+                                    <progress value="95" max="100" class="w-full h-3 rounded-full overflow-hidden bg-slate-200">95%</progress>
+                                    <span class="text-xs font-bold text-indigo-600">95%</span>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                    ექსპერტი / სრული
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="py-4 px-6 font-bold text-slate-900">ვებ-ხელმისაწვდომობა (Accessibility / WCAG)</td>
+                            <td class="py-4 px-6 font-semibold text-indigo-600">85%</td>
+                            <td class="py-4 px-6">
+                                <div class="flex items-center gap-3">
+                                    <progress value="85" max="100" class="w-full h-3 rounded-full overflow-hidden bg-slate-200">85%</progress>
+                                    <span class="text-xs font-bold text-indigo-600">85%</span>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                    მაღალი
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="py-4 px-6 font-bold text-slate-900">SEO ოპტიმიზაცია &amp; Meta მონაცემები</td>
+                            <td class="py-4 px-6 font-semibold text-indigo-600">80%</td>
+                            <td class="py-4 px-6">
+                                <div class="flex items-center gap-3">
+                                    <progress value="80" max="100" class="w-full h-3 rounded-full overflow-hidden bg-slate-200">80%</progress>
+                                    <span class="text-xs font-bold text-indigo-600">80%</span>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200">
+                                    კარგი
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="py-4 px-6 font-bold text-slate-900">HTML5 ფორმები და ვალიდაცია</td>
+                            <td class="py-4 px-6 font-semibold text-indigo-600">90%</td>
+                            <td class="py-4 px-6">
+                                <div class="flex items-center gap-3">
+                                    <progress value="90" max="100" class="w-full h-3 rounded-full overflow-hidden bg-slate-200">90%</progress>
+                                    <span class="text-xs font-bold text-indigo-600">90%</span>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                    მაღალი
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="py-4 px-6 font-bold text-slate-900">ცხრილები და რთული მონაცემთა სტრუქტურები</td>
+                            <td class="py-4 px-6 font-semibold text-indigo-600">92%</td>
+                            <td class="py-4 px-6">
+                                <div class="flex items-center gap-3">
+                                    <progress value="92" max="100" class="w-full h-3 rounded-full overflow-hidden bg-slate-200">92%</progress>
+                                    <span class="text-xs font-bold text-indigo-600">92%</span>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6">
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                    მაღალი
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- სექცია 2: ხელოვნური ინტელექტის ინსტრუმენტები -->
+        <section id="ai-competencies" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">ნაბიჯი 02</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
+                    2. ხელოვნური ინტელექტი (<abbr title="Artificial Intelligence" class="font-bold underline decoration-dotted text-indigo-600">AI</abbr>) დეველოპმენტში
+                </h3>
+                <p class="text-sm text-slate-500 mt-1">
+                    თანამედროვე დეველოპერისთვის გადამწყვეტია AI ტექნოლოგიების ეფექტური გამოყენება. 
+                    ჩემს სამუშაო პროცესში ვიყენებ შემდეგ AI კომპეტენციებს:
+                </p>
+            </div>
+
+            <!-- აღწერილობითი სია (dl) -->
+            <dl class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-indigo-50/40 border border-indigo-100/80 space-y-3">
+                    <span class="text-2xl block">💬</span>
+                    <dt class="font-bold text-slate-900 text-base">Prompt Engineering (პრომპტ-ინჟინერია):</dt>
+                    <dd class="text-sm text-slate-600 leading-relaxed">
+                        მკაფიო, კონტექსტური და დეტალური ინსტრუქციების ჩამოყალიბება AI მოდელებისთვის 
+                        ზუსტი და უშეცდომო კოდის შესაქმნელად.
+                    </dd>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-purple-50/40 border border-purple-100/80 space-y-3">
+                    <span class="text-2xl block">🔍</span>
+                    <dt class="font-bold text-slate-900 text-base">AI-ით გაძლიერებული კოდის რევიზია (Code Review):</dt>
+                    <dd class="text-sm text-slate-600 leading-relaxed">
+                        ხელოვნური ინტელექტის გამოყენება სემანტიკური შეცდომების, არასწორი თეგებისა და 
+                        ხელმისაწვდომობის ხარვეზების აღმოსაჩენად.
+                    </dd>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-emerald-50/40 border border-emerald-100/80 space-y-3">
+                    <span class="text-2xl block">📝</span>
+                    <dt class="font-bold text-slate-900 text-base">დოკუმენტაციის ავტომატიზაცია:</dt>
+                    <dd class="text-sm text-slate-600 leading-relaxed">
+                        პროექტის სტრუქტურის, კომენტარებისა და მომხმარებლის სახელმძღვანელოების 
+                        სწრაფი და ხარისხიანი შედგენა AI-ს დახმარებით.
+                    </dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- სექცია 3: დეველოპერის ხელსაწყოები -->
+        <section id="tools" class="space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">ნაბიჯი 03</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">3. პროგრამული ხელსაწყოები &amp; გარემო</h3>
+                <p class="text-sm text-slate-500 mt-1">ყოველდღიურ პრაქტიკაში გამოყენებული ინსტრუმენტები:</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-2">
+                    <span class="text-xl">💻</span>
+                    <h4 class="font-bold text-slate-900 text-sm">კოდის რედაქტორები</h4>
+                    <p class="text-sm text-indigo-700 font-medium">Visual Studio Code, Antigravity IDE</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-2">
+                    <span class="text-xl">🌿</span>
+                    <h4 class="font-bold text-slate-900 text-sm">ვერსიების კონტროლი</h4>
+                    <p class="text-sm text-indigo-700 font-medium">Git, GitHub (Commit, Push, Pull, Branching)</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-2">
+                    <span class="text-xl">🛠️</span>
+                    <h4 class="font-bold text-slate-900 text-sm">ბრაუზერის დეველოპერის ინსტრუმენტები</h4>
+                    <p class="text-sm text-indigo-700 font-medium">DevTools (F12, Elements Tree, Accessibility Tree, Network)</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-2">
+                    <span class="text-xl">📄</span>
+                    <h4 class="font-bold text-slate-900 text-sm">მარკირება და დოკუმენტაცია</h4>
+                    <p class="text-sm text-indigo-700 font-medium">Markdown, HTML5, Mermaid Diagrams</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm space-y-2 sm:col-span-2 lg:col-span-2">
+                    <span class="text-xl">🖥️</span>
+                    <h4 class="font-bold text-slate-900 text-sm">ოპერაციული სისტემები</h4>
+                    <p class="text-sm text-indigo-700 font-medium">Windows 11, Linux (საბაზისო ტერმინალის ბრძანებები)</p>
+                </div>
+            </div>
+
+            <!-- სემანტიკური დაფარული სია ხელმისაწვდომობისთვის -->
+            <ul class="sr-only">
+                <li><strong>კოდის რედაქტორები:</strong> Visual Studio Code, Antigravity IDE</li>
+                <li><strong>ვერსიების კონტროლი:</strong> Git, GitHub (Commit, Push, Pull, Branching)</li>
+                <li><strong>ბრაუზერის დეველოპერის ინსტრუმენტები:</strong> DevTools (F12, Elements Tree, Accessibility Tree, Network)</li>
+                <li><strong>მარკირება და დოკუმენტაცია:</strong> Markdown, HTML5, Mermaid Diagrams</li>
+                <li><strong>ოპერაციული სისტემები:</strong> Windows 11, Linux (საბაზისო ტერმინალის ბრძანებები)</li>
+            </ul>
+        </section>
+
+        <!-- სექცია 4: პიროვნული უნარები -->
+        <section id="soft-skills" class="space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">ნაბიჯი 04</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">4. პიროვნული უნარები (Soft Skills)</h3>
+                <p class="text-sm text-slate-500 mt-1">წარმატებული გუნდური მუშაობისთვის აუცილებელი თვისებები:</p>
+            </div>
+
+            <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 list-none p-0 m-0">
+                <li class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition space-y-3">
+                    <span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-sm">01</span>
+                    <strong class="block text-slate-900 font-bold text-sm">პრობლემის გადაჭრის უნარი (Problem Solving):</strong>
+                    <p class="text-xs text-slate-600 leading-relaxed">ამოცანის ეტაპებად დაყოფა და ოპტიმალური გზის პოვნა.</p>
+                </li>
+
+                <li class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition space-y-3">
+                    <span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-sm">02</span>
+                    <strong class="block text-slate-900 font-bold text-sm">დეტალებზე ორიენტირებულობა:</strong>
+                    <p class="text-xs text-slate-600 leading-relaxed">სტანდარტების, სემანტიკისა და ვალიდაციის ზედმიწევნით დაცვა.</p>
+                </li>
+
+                <li class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition space-y-3">
+                    <span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-sm">03</span>
+                    <strong class="block text-slate-900 font-bold text-sm">კომუნიკაცია &amp; თანამშრომლობა:</strong>
+                    <p class="text-xs text-slate-600 leading-relaxed">იდეების ნათლად გადმოცემა და სხვისი რჩევების გათვალისწინება.</p>
+                </li>
+
+                <li class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition space-y-3">
+                    <span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-sm">04</span>
+                    <strong class="block text-slate-900 font-bold text-sm">დროის მართვა (Time Management):</strong>
+                    <p class="text-xs text-slate-600 leading-relaxed">დავალებების განსაზღვრულ ვადებში (Deadline) ხარისხიანად შესრულება.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- გვერდითი პანელი: მომავალი მიზნები (Aside) -->
+        <aside id="learning-roadmap" class="bg-gradient-to-br from-indigo-50/60 via-white to-purple-50/30 p-6 sm:p-8 rounded-3xl border border-indigo-100/80 shadow-sm space-y-5">
+            <div class="flex items-center gap-2">
+                <span class="p-2 rounded-xl bg-indigo-100 text-indigo-700 text-sm font-bold">🚀</span>
+                <h3 class="text-lg font-bold text-slate-900">სწავლის გეგმა (Roadmap — შემდეგი ნაბიჯები)</h3>
+            </div>
+            <p class="text-sm text-slate-600">ტექნოლოგიები, რომელთა სიღრმისეულ შესწავლასაც ვგეგმავ უახლოეს მომავალში:</p>
+            
+            <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 list-none p-0 m-0">
+                <li class="p-4 bg-white/90 rounded-2xl border border-slate-200/70 shadow-sm space-y-1.5">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">ეტაპი 1</span>
+                    <strong class="block text-slate-900 text-sm font-bold">CSS3 &amp; თანამედროვე სტილები</strong>
+                    <p class="text-xs text-slate-600 leading-relaxed">Flexbox, CSS Grid, ანიმაციები და რესპონსიული დიზაინი (Responsive Web Design).</p>
+                </li>
+
+                <li class="p-4 bg-white/90 rounded-2xl border border-slate-200/70 shadow-sm space-y-1.5">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">ეტაპი 2</span>
+                    <strong class="block text-slate-900 text-sm font-bold">JavaScript (ES6+)</strong>
+                    <p class="text-xs text-slate-600 leading-relaxed">დინამიური DOM მანიპულაციები, ასინქრონული პროგრამირება (Promises, Fetch API).</p>
+                </li>
+
+                <li class="p-4 bg-white/90 rounded-2xl border border-slate-200/70 shadow-sm space-y-1.5">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">ეტაპი 3</span>
+                    <strong class="block text-slate-900 text-sm font-bold">თანამედროვე ფრეიმვორკები</strong>
+                    <p class="text-xs text-slate-600 leading-relaxed">React.js კომპონენტური არქიტექტურის ათვისება.</p>
+                </li>
+
+                <li class="p-4 bg-white/90 rounded-2xl border border-slate-200/70 shadow-sm space-y-1.5">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">ეტაპი 4</span>
+                    <strong class="block text-slate-900 text-sm font-bold">Backend საფუძვლები</strong>
+                    <p class="text-xs text-slate-600 leading-relaxed">REST API-ების შექმნა და მონაცემთა ბაზებთან მუშაობა.</p>
+                </li>
+            </ol>
+        </aside>
+
+    </main>
+
+    <!-- საიტის სარდაფი (Footer) -->
+    <footer class="bg-slate-900 text-slate-300 mt-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-slate-800">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white font-extrabold text-sm shadow-md">
+                            სძ
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">სანდრო ძნელაძე</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+                        პერსონალური პორტფოლიო შექმნილი სემანტიკური HTML5-ით და თანამედროვე Tailwind CSS სტილებით.
+                    </p>
+                </div>
+
+                <section class="md:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-200">ნავიგაცია:</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition">მთავარი</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-white transition">ჩემ შესახებ</a></li>
+                        <li><a href="projects.html" class="text-slate-400 hover:text-white transition">პროექტები</a></li>
+                        <li><a href="skills.html" class="text-indigo-400 font-semibold hover:text-white transition">უნარები</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition">კონტაქტი</a></li>
+                    </ul>
+                </section>
+
+                <address class="md:col-span-4 not-italic space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-200">კონტაქტი:</h4>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p>ელფოსტა: <a href="mailto:sandro.dzneladze@example.ge" class="text-indigo-400 hover:underline">sandro.dzneladze@example.ge</a></p>
+                        <p>ტელეფონი: <a href="tel:+995555123456" class="text-slate-300 hover:text-white transition">+995 (555) 12-34-56</a></p>
+                        <p>მისამართი: თბილისი, საქართველო</p>
+                    </div>
+                </address>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; <time datetime="2026">2026</time> სანდრო ძნელაძე. შექმნილია სუფთა HTML5-ით.</p>
+                <p>
+                    <a href="#top" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">
+                        <span>&uarr; დაბრუნება გვერდის დასაწყისში</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- მობილური მენიუს სკრიპტი -->
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                const svg = mobileBtn.querySelector('svg');
+                if (isHidden) {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                } else {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

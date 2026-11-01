@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="სანდრო ძნელაძის ბიოგრაფია, განათლება და აკადემიური გამოცდილება.">
+    <meta name="keywords" content="სანდრო ძნელაძე, ბიოგრაფია, განათლება, ვებ-დეველოპერი, უნივერსიტეტი, სერტიფიკატები">
+    <meta name="author" content="სანდრო ძნელაძე">
+    <title>სანდრო ძნელაძე — პორტფოლიო | ჩემ შესახებ</title>
+
+    <!-- Google Fonts: Noto Sans Georgian & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Official Tailwind CSS Browser CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Georgian"', 'Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- საიტის მთავარი თავფურცელი (Header) -->
+    <header id="top"
+        class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+
+                <!-- ლოგო და სათაური -->
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div
+                            class="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white font-black text-lg shadow-md shadow-indigo-200 group-hover:scale-105 transition-transform">
+                            სძ
+                        </div>
+                        <div>
+                            <h1
+                                class="text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors">
+                                სანდრო ძნელაძე</h1>
+                            <p class="hidden sm:block text-xs text-slate-500 font-medium"><strong>პროფესია:</strong>
+                                დამწყები
+                                ვებ-დეველოპერი | IT &amp; AI ენთუზიასტი</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- მთავარი ნავიგაცია (Desktop Navigation) -->
+                <nav aria-label="მთავარი მენიუ"
+                    class="hidden md:flex items-center gap-1.5 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200/60">
+                    <a href="index.html"
+                        class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">მთავარი
+                        გვერდი</a>
+                    <a href="about.html"
+                        class="px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white shadow-sm flex items-center gap-1.5 transition">ჩემ
+                        შესახებ</a>
+                    <a href="projects.html"
+                        class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">პროექტები</a>
+                    <a href="skills.html"
+                        class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">ტექნიკური
+                        უნარები</a>
+                    <a href="contact.html"
+                        class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">კონტაქტი</a>
+                </nav>
+
+                <!-- მობილურის მენიუს ღილაკი -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" aria-label="მთავარი მენიუს გადართვა"
+                        class="p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-indigo-600 hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- მობილური მენიუ -->
+        <nav id="mobile-menu" aria-label="მობილური მენიუ"
+            class="hidden md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md px-4 py-3 space-y-1 shadow-lg">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 px-3 py-1">
+                <strong>ნავიგაცია:</strong>
+            </p>
+            <ul class="space-y-1 list-none p-0 m-0">
+                <li><a href="index.html"
+                        class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">მთავარი
+                        გვერდი</a></li>
+                <li><span class="block px-3 py-2.5 rounded-xl text-sm font-semibold bg-indigo-600 text-white">[ ჩემ
+                        შესახებ ] (თქვენ იმყოფებით აქ)</span></li>
+                <li><a href="projects.html"
+                        class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">პროექტები</a>
+                </li>
+                <li><a href="skills.html"
+                        class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">ტექნიკური
+                        უნარები</a></li>
+                <li><a href="contact.html"
+                        class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">კონტაქტი</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- მთავარი შინაარსობრივი ნაწილი (Main) -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-16">
+
+        <!-- ბიოგრაფიის სექცია -->
+        <section id="biography" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm space-y-8">
+            <div class="border-b border-slate-100 pb-5">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">პროფილი</span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
+                    პირადი ბიოგრაფია &amp; ჩემი ისტორია
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-base text-slate-600 leading-relaxed">
+                <div class="p-6 rounded-2xl bg-slate-50/70 border border-slate-200/60 space-y-3">
+                    <div
+                        class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-600 font-bold flex items-center justify-center text-sm">
+                        01</div>
+                    <p>
+                        ჩემი ინტერესი კომპიუტერული ტექნოლოგიების მიმართ სკოლის ასაკიდან დაიწყო.
+                        ყოველთვის მაინტერესებდა, თუ როგორ მუშაობს ინტერნეტი და როგორ იქმნება ის სისტემები,
+                        რომლებსაც ყოველდღიურად მილიონობით ადამიანი იყენებს.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-indigo-50/40 border border-indigo-100/80 space-y-3">
+                    <div
+                        class="w-9 h-9 rounded-xl bg-purple-100 text-purple-600 font-bold flex items-center justify-center text-sm">
+                        02</div>
+                    <p>
+                        დღესდღეობით აქტიურად ვეუფლები <strong>ვებ-ინჟინერიასა</strong> და თანამედროვე
+                        <abbr title="Artificial Intelligence"
+                            class="font-semibold underline decoration-dotted text-slate-800">AI</abbr> ტექნოლოგიებს.
+                        მიმაჩნია, რომ სწორი და ხარისხიანი ვებ-პროდუქტის საფუძველი არის სუფთა და სტანდარტებთან შესაბამისი
+                        <em class="font-medium text-indigo-900">სემანტიკური მარკირება</em>, რომლის სრულფასოვან
+                        ათვისებასაც განსაკუთრებულ ყურადღებას ვუთმობ.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100">
+                <h3 class="text-xl font-bold text-slate-900 mb-5 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
+                    პირადი მონაცემები მოკლედ
+                </h3>
+
+                <!-- დესკრიპციული სია (dl, dt, dd) -->
+                <dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+                        <dt class="text-xs font-bold text-indigo-600 uppercase tracking-wider">სრული სახელი:</dt>
+                        <dd class="mt-1 font-semibold text-slate-900 text-base">სანდრო ძნელაძე</dd>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+                        <dt class="text-xs font-bold text-indigo-600 uppercase tracking-wider">დაბადების თარიღი:</dt>
+                        <dd class="mt-1 font-semibold text-slate-900 text-base">
+                            <time datetime="2005-04-12">12 აპრილი, 2005 წელი</time>
+                        </dd>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70">
+                        <dt class="text-xs font-bold text-indigo-600 uppercase tracking-wider">საცხოვრებელი ადგილი:</dt>
+                        <dd class="mt-1 font-semibold text-slate-900 text-base">თბილისი, საქართველო</dd>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 sm:col-span-2 lg:col-span-2">
+                        <dt class="text-xs font-bold text-indigo-600 uppercase tracking-wider">ენობრივი ცოდნა:</dt>
+                        <dd class="mt-2 text-sm text-slate-800">
+                            <ul class="flex flex-wrap gap-2.5">
+                                <li
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium text-xs">
+                                    🇬🇪 ქართული — მშობლიური (C2)
+                                </li>
+                                <li
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium text-xs">
+                                    🇬🇧 ინგლისური — თავისუფალი / აკადემიური (B2 / C1)
+                                </li>
+                                <li
+                                    class="inline-flex items-center px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 font-medium text-xs">
+                                    🇩🇪 გერმანული — საბაზისო (A2)
+                                </li>
+                            </ul>
+                        </dd>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/70 sm:col-span-2 lg:col-span-1">
+                        <dt class="text-xs font-bold text-indigo-600 uppercase tracking-wider">პროფესიული როლი:</dt>
+                        <dd class="mt-1 font-semibold text-indigo-700 text-sm">სტუდენტი / Junior Frontend Developer / AI
+                            Learner</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- განათლების სექცია -->
+        <section id="education" class="space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">აკადემიური გზა</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">აკადემიური განათლება
+                </h2>
+                <p class="text-sm text-slate-500 mt-1">ჩემი ფორმალური განათლების ისტორია და აკადემიური მიღწევები:</p>
+            </div>
+
+            <!-- განათლების ცხრილი -->
+            <div class="overflow-x-auto rounded-3xl border border-slate-200/80 bg-white shadow-sm">
+                <table class="w-full text-left border-collapse text-sm text-slate-700"
+                    summary="სანდრო ძნელაძის განათლების საფეხურები">
+                    <caption
+                        class="text-left font-bold text-slate-900 p-5 bg-slate-50/70 border-b border-slate-200 text-sm">
+                        ცხრილი 2: აკადემიური განათლების ისტორია
+                    </caption>
+                    <thead class="bg-slate-100/70 text-slate-700 text-xs uppercase font-semibold tracking-wider">
+                        <tr>
+                            <th scope="col" class="py-4 px-6 border-b border-slate-200">პერიოდი</th>
+                            <th scope="col" class="py-4 px-6 border-b border-slate-200">საგანმანათლებლო დაწესებულება
+                            </th>
+                            <th scope="col" class="py-4 px-6 border-b border-slate-200">საფეხური / ფაკულტეტი</th>
+                            <th scope="col" class="py-4 px-6 border-b border-slate-200">სპეციალიზაცია</th>
+                            <th scope="col" class="py-4 px-6 border-b border-slate-200">შეფასება / სტატუსი</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="py-4 px-6 font-semibold text-indigo-600 whitespace-nowrap">
+                                <time datetime="2023">2023</time> – დღემდე
+                            </td>
+                            <td class="py-4 px-6 font-bold text-slate-900">თბილისის სახელმწიფო / ტექნოლოგიური
+                                უნივერსიტეტი</td>
+                            <td class="py-4 px-6 text-slate-700">ბაკალავრიატი</td>
+                            <td class="py-4 px-6 text-slate-700">კომპიუტერული მეცნიერება &amp; პროგრამული ინჟინერია</td>
+                            <td class="py-4 px-6">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                    აქტიური სტუდენტი (GPA: 3.8/4.0)
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="py-4 px-6 font-semibold text-slate-500 whitespace-nowrap">
+                                <time datetime="2011">2011</time> – <time datetime="2023">2023</time>
+                            </td>
+                            <td class="py-4 px-6 font-bold text-slate-900">ქ. თბილისის საჯარო სკოლა</td>
+                            <td class="py-4 px-6 text-slate-700">სრული ზოგადი განათლება</td>
+                            <td class="py-4 px-6 text-slate-700">ფიზიკა-მათემატიკური და ტექნიკური მიმართულება</td>
+                            <td class="py-4 px-6">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                                    წარჩინებით (ოქროს მედალოსანი)
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- კურსები და სერტიფიკატები -->
+        <section id="certifications"
+            class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm space-y-8">
+            <div class="border-b border-slate-100 pb-5">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">სერტიფიკაცია</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
+                    გავლილი პროფესიული კურსები &amp; სერტიფიკატები
+                </h2>
+                <p class="text-sm text-slate-500 mt-1">დამატებითი პროფესიული გადამზადება და ავტორიზებული სერტიფიცირება:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- სურათი -->
+                <div class="lg:col-span-4 flex justify-center">
+                    <figure
+                        class="flex flex-col items-center text-center p-6 bg-slate-50 rounded-2xl border border-slate-200/80 w-full">
+                        <img src="images/certificate.svg" alt="HTML5 და ვებ-ტექნოლოგიების სერტიფიკატი" width="240"
+                            height="160"
+                            class="w-full max-w-xs h-36 object-contain hover:scale-105 transition-transform duration-300">
+                        <figcaption class="mt-4 text-xs font-medium text-slate-500">
+                            ნახ. 3 — HTML5 სემანტიკისა და ვებ-სტანდარტების წარჩინების სერტიფიკატი
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <!-- სერტიფიკატების სია (ol) -->
+                <div class="lg:col-span-8">
+                    <ol class="space-y-4 list-none p-0 m-0">
+                        <!-- 1 -->
+                        <li
+                            class="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:border-indigo-200 hover:bg-white hover:shadow-sm transition duration-200 space-y-2">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <strong class="text-base font-bold text-slate-900">1. სემანტიკური HTML5 და თანამედროვე
+                                    ვებ-სტანდარტები</strong>
+                                <span
+                                    class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                    თარიღი: <time datetime="2026-08">აგვისტო, 2026</time>
+                                </span>
+                            </div>
+                            <small class="block text-xs font-medium text-slate-500">პლატფორმა: Web Development
+                                Academy</small>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                კურსის ფარგლებში დეტალურად შევისწავლე: DOM სტრუქტურა, ხელმისაწვდომობა (a11y),
+                                სემანტიკური მარკირება და SEO ოპტიმიზაცია.
+                            </p>
+                        </li>
+
+                        <!-- 2 -->
+                        <li
+                            class="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:border-indigo-200 hover:bg-white hover:shadow-sm transition duration-200 space-y-2">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <strong class="text-base font-bold text-slate-900">2. პროგრამირების საფუძვლები და
+                                    ალგორითმები</strong>
+                                <span
+                                    class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                    თარიღი: <time datetime="2026-03">მარტი, 2026</time>
+                                </span>
+                            </div>
+                            <small class="block text-xs font-medium text-slate-500">პლატფორმა: CodeLearn
+                                Platform</small>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                მონაცემთა სტრუქტურები, ძირითადი ალგორითმები და ლოგიკური ამოცანების გადაჭრა.
+                            </p>
+                        </li>
+
+                        <!-- 3 -->
+                        <li
+                            class="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 hover:border-indigo-200 hover:bg-white hover:shadow-sm transition duration-200 space-y-2">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <strong class="text-base font-bold text-slate-900">3. <abbr
+                                        title="Artificial Intelligence"
+                                        class="font-bold underline decoration-dotted">AI</abbr> ინსტრუმენტები
+                                    დეველოპერებისთვის (Prompt Engineering)</strong>
+                                <span
+                                    class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                    თარიღი: <time datetime="2026-06">ივნისი, 2026</time>
+                                </span>
+                            </div>
+                            <small class="block text-xs font-medium text-slate-500">პლატფორმა: AI Pioneers
+                                Institute</small>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                ხელოვნური ინტელექტის ინტეგრაცია პროფესიულ სამუშაო პროცესში, პრომპტინგის ტექნიკები და
+                                ავტომატიზაცია.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- ინტერესები და ჰობი -->
+        <section id="interests" class="space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">ცხოვრების წესი</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">ინტერესები &amp;
+                    თავისუფალი დრო</h2>
+                <p class="text-sm text-slate-500 mt-1">ტექნოლოგიების გარდა, ჩემთვის მნიშვნელოვანია ბალანსი და გონებრივი
+                    აქტივობა:</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                    class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-indigo-200 transition">
+                    <span class="text-2xl mb-3 block">♟️</span>
+                    <h3 class="font-bold text-slate-900 mb-2">ჭადრაკი</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">სტრატეგიული აზროვნებისა და გადაწყვეტილების მიღების
+                        უნარების გაუმჯობესება.</p>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-indigo-200 transition">
+                    <span class="text-2xl mb-3 block">📚</span>
+                    <h3 class="font-bold text-slate-900 mb-2">ტექნოლოგიური საკითხავი</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">წიგნები სუფთა კოდის, სისტემური დიზაინისა და AI
+                        მომავლის შესახებ.</p>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-indigo-200 transition">
+                    <span class="text-2xl mb-3 block">🌐</span>
+                    <h3 class="font-bold text-slate-900 mb-2">ღია კოდის პროექტები</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">სხვადასხვა საინტერესო Open Source რეპოზიტორიების
+                        ანალიზი და შესწავლა.</p>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-indigo-200 transition">
+                    <span class="text-2xl mb-3 block">🏔️</span>
+                    <h3 class="font-bold text-slate-900 mb-2">მთაში ლაშქრობა</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">ბუნებაში დროის გატარება ენერგიის აღსადგენად.</p>
+                </div>
+            </div>
+
+            <!-- სემანტიკური დაფარული სია ხელმისაწვდომობისთვის -->
+            <ul class="sr-only">
+                <li><strong>ჭადრაკი:</strong> სტრატეგიული აზროვნებისა და გადაწყვეტილების მიღების უნარების გაუმჯობესება.
+                </li>
+                <li><strong>ტექნოლოგიური საკითხავი:</strong> წიგნები სუფთა კოდის, სისტემური დიზაინისა და AI მომავლის
+                    შესახებ.</li>
+                <li><strong>ღია კოდის (Open Source) პროექტები:</strong> სხვადასხვა საინტერესო რეპოზიტორიების ანალიზი და
+                    შესწავლა.</li>
+                <li><strong>მთაში ლაშქრობა:</strong> ბუნებაში დროის გატარება ენერგიის აღსადგენად.</li>
+            </ul>
+        </section>
+
+        <!-- რეკომენდაციები და შეფასებები (Aside) -->
+        <aside id="recommendations"
+            class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gradient-to-br from-indigo-50/60 via-white to-purple-50/30 p-6 sm:p-8 rounded-3xl border border-indigo-100/80 shadow-sm">
+
+            <section class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="p-2 rounded-xl bg-indigo-100 text-indigo-700 text-sm font-bold">💬</span>
+                    <h3 class="text-lg font-bold text-slate-900">მენტორების შეფასებები</h3>
+                </div>
+
+                <article>
+                    <blockquote cite="https://example.ge/faculty/evaluations"
+                        class="p-5 bg-white/90 rounded-2xl border-l-4 border-indigo-600 shadow-sm space-y-3">
+                        <p class="text-slate-700 italic text-sm leading-relaxed">
+                            „სანდრო გამოირჩევა მაღალი პასუხისმგებლობის გრძნობით, დეტალებზე ორიენტირებითა და
+                            დავალებებისადმი შემოქმედებითი მიდგომით. განსაკუთრებით აღსანიშნავია მისი სურვილი,
+                            დაეუფლოს სუფთა კოდის წერის კულტურასა და ინოვაციურ ხელსაწყოებს.“
+                        </p>
+                        <footer class="text-xs font-semibold text-slate-500">
+                            — <cite class="not-italic text-indigo-700 font-bold">პროფესორი გიორგი ბერიძე</cite>,
+                            კომპიუტერული მეცნიერების ლექტორი
+                        </footer>
+                    </blockquote>
+                </article>
+            </section>
+
+            <section class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <span class="p-2 rounded-xl bg-purple-100 text-purple-700 text-sm font-bold">❓</span>
+                    <h3 class="text-lg font-bold text-slate-900">კითხვა &amp; პასუხი</h3>
+                </div>
+
+                <details
+                    class="group bg-white/90 rounded-2xl border border-slate-200/80 p-5 shadow-sm transition-all open:bg-white open:shadow-md">
+                    <summary
+                        class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm select-none">
+                        <span>რატომ ავირჩიე ვებ-დეველოპმენტი?</span>
+                        <svg class="w-5 h-5 text-indigo-600 transform group-open:rotate-180 transition-transform duration-200"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </summary>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+                        <p>
+                            ვებ-დეველოპმენტი იძლევა უნიკალურ შესაძლებლობას, რომ დაწერილი კოდი მყისიერად გარდაიქმნას
+                            ვიზუალურ და ფუნქციურ პროდუქტად, რომლის გამოყენებაც მსოფლიოს ნებისმიერი წერტილიდან შეუძლია
+                            ნებისმიერ მომხმარებელს.
+                        </p>
+                    </div>
+                </details>
+            </section>
+
+        </aside>
+
+    </main>
+
+    <!-- საიტის სარდაფი (Footer) -->
+    <footer class="bg-slate-900 text-slate-300 mt-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-slate-800">
+
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white font-extrabold text-sm shadow-md">
+                            სძ
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">სანდრო ძნელაძე</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+                        პერსონალური პორტფოლიო შექმნილი სემანტიკური HTML5-ით და თანამედროვე Tailwind CSS სტილებით.
+                    </p>
+                </div>
+
+                <section class="md:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-200">ნავიგაცია:</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition">მთავარი</a></li>
+                        <li><a href="about.html" class="text-indigo-400 font-semibold hover:text-white transition">ჩემ
+                                შესახებ</a></li>
+                        <li><a href="projects.html" class="text-slate-400 hover:text-white transition">პროექტები</a>
+                        </li>
+                        <li><a href="skills.html" class="text-slate-400 hover:text-white transition">უნარები</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition">კონტაქტი</a></li>
+                    </ul>
+                </section>
+
+                <address class="md:col-span-4 not-italic space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-200">კონტაქტი:</h4>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p>ელფოსტა: <a href="mailto:sandro.dzneladze@example.ge"
+                                class="text-indigo-400 hover:underline">sandro.dzneladze@example.ge</a></p>
+                        <p>ტელეფონი: <a href="tel:+995555123456" class="text-slate-300 hover:text-white transition">+995
+                                (555) 12-34-56</a></p>
+                        <p>მისამართი: თბილისი, საქართველო</p>
+                    </div>
+                </address>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; <time datetime="2026">2026</time> სანდრო ძნელაძე. შექმნილია სუფთა HTML5-ით.</p>
+                <p>
+                    <a href="#top"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">
+                        <span>&uarr; დაბრუნება გვერდის დასაწყისში</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- მობილური მენიუს სკრიპტი -->
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                const svg = mobileBtn.querySelector('svg');
+                if (isHidden) {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                } else {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
