@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="სანდრო ძნელაძესთან დაკავშირება: საკონტაქტო ფორმა, ტელეფონი, ელფოსტა და სოციალური ქსელები.">
+    <meta name="keywords" content="კონტაქტი, სანდრო ძნელაძე, საკონტაქტო ფორმა, ელფოსტა, ტელეფონი, თბილისი">
+    <meta name="author" content="სანდრო ძნელაძე">
+    <title>სანდრო ძნელაძე — პორტფოლიო | კონტაქტი</title>
+
+    <!-- Google Fonts: Noto Sans Georgian & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Official Tailwind CSS Browser CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Georgian"', 'Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- საიტის მთავარი თავფურცელი (Header) -->
+    <header id="top" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                
+                <!-- ლოგო და სათაური -->
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white font-black text-lg shadow-md shadow-indigo-200 group-hover:scale-105 transition-transform">
+                            სძ
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors">სანდრო ძნელაძე</h1>
+                            <p class="hidden sm:block text-xs text-slate-500 font-medium"><strong>პროფესია:</strong> დამწყები ვებ-დეველოპერი | IT &amp; AI ენთუზიასტი</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- მთავარი ნავიგაცია (Desktop Navigation) -->
+                <nav aria-label="მთავარი მენიუ" class="hidden md:flex items-center gap-1.5 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200/60">
+                    <a href="index.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">მთავარი გვერდი</a>
+                    <a href="about.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">ჩემ შესახებ</a>
+                    <a href="projects.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">პროექტები</a>
+                    <a href="skills.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">ტექნიკური უნარები</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white shadow-sm flex items-center gap-1.5 transition">კონტაქტი</a>
+                </nav>
+
+                <!-- მობილურის მენიუს ღილაკი -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" aria-label="მთავარი მენიუს გადართვა" class="p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-indigo-600 hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- მობილური მენიუ -->
+        <nav id="mobile-menu" aria-label="მობილური მენიუ" class="hidden md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md px-4 py-3 space-y-1 shadow-lg">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 px-3 py-1"><strong>ნავიგაცია:</strong></p>
+            <ul class="space-y-1 list-none p-0 m-0">
+                <li><a href="index.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">მთავარი გვერდი</a></li>
+                <li><a href="about.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">ჩემ შესახებ</a></li>
+                <li><a href="projects.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">პროექტები</a></li>
+                <li><a href="skills.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">ტექნიკური უნარები</a></li>
+                <li><span class="block px-3 py-2.5 rounded-xl text-sm font-semibold bg-indigo-600 text-white">[ კონტაქტი ] (თქვენ იმყოფებით აქ)</span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- მთავარი შინაარსობრივი ნაწილი (Main) -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-16">
+
+        <!-- გვერდის სათაურის ბლოკი -->
+        <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm">
+            <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">დაკავშირება</span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
+                დამიკავშირდით / საკონტაქტო ინფორმაცია
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed mt-3 max-w-3xl">
+                ღია ვარ ახალი შემოთავაზებებისთვის, სტაჟირებისთვის, საინტერესო პროექტებში მონაწილეობისა 
+                და პროფესიული კონსულტაციებისთვის. შეგიძლიათ გამომიგზავნოთ წერილი ქვემოთ მოცემული ფორმის საშუალებით 
+                ან პირდაპირ დამიკავშირდეთ მითითებულ საკონტაქტო არხებზე.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- მარცხენა სვეტი: საკონტაქტო მონაცემები & სოციალური ქსელები -->
+            <div class="lg:col-span-5 space-y-8">
+                
+                <!-- პირდაპირი არხები -->
+                <section id="direct-contact" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-6">
+                    <div class="border-b border-slate-100 pb-4">
+                        <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">არხები</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">პირდაპირი საკონტაქტო არხები</h3>
+                    </div>
+                    
+                    <address class="not-italic space-y-4 text-sm text-slate-600">
+                        <div class="flex items-start gap-3">
+                            <span class="p-2 rounded-xl bg-indigo-50 text-indigo-600 text-sm">👤</span>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">სრული სახელი:</span>
+                                <strong class="text-slate-900 font-semibold text-base">სანდრო ძნელაძე</strong>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-2 rounded-xl bg-indigo-50 text-indigo-600 text-sm">✉️</span>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">ელექტრონული ფოსტა:</span>
+                                <a href="mailto:sandro.dzneladze@example.ge" class="text-indigo-600 font-semibold hover:underline text-sm">
+                                    sandro.dzneladze@example.ge
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-2 rounded-xl bg-indigo-50 text-indigo-600 text-sm">📞</span>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">ტელეფონი:</span>
+                                <a href="tel:+995555123456" class="text-slate-800 font-semibold hover:text-indigo-600 transition text-sm">
+                                    +995 (555) 12-34-56
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-2 rounded-xl bg-indigo-50 text-indigo-600 text-sm">🕒</span>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">სამუშაო საათები:</span>
+                                <p class="text-slate-800 font-medium text-sm">ორშაბათი – პარასკევი, 10:00 – 19:00 (GMT+4)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="p-2 rounded-xl bg-indigo-50 text-indigo-600 text-sm">📍</span>
+                            <div>
+                                <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider">ადგილმდებარეობა:</span>
+                                <p class="text-slate-800 font-medium text-sm">ქ. თბილისი, საქართველო</p>
+                            </div>
+                        </div>
+                    </address>
+
+                    <div class="pt-4 border-t border-slate-100">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">პროფესიული და სოციალური პროფილები:</h4>
+                        <ul class="space-y-2 list-none p-0 m-0">
+                            <li>
+                                <a href="https://github.com/example/sandro-dzneladze" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-indigo-50 border border-slate-200/80 hover:border-indigo-200 transition text-sm group">
+                                    <span class="font-bold text-slate-800 group-hover:text-indigo-600 flex items-center gap-2">
+                                        <span>🐙</span> GitHub
+                                    </span>
+                                    <span class="text-xs font-medium text-slate-500 group-hover:text-indigo-700">github.com/sandro-dzneladze &rarr;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com/in/example/sandro-dzneladze" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-indigo-50 border border-slate-200/80 hover:border-indigo-200 transition text-sm group">
+                                    <span class="font-bold text-slate-800 group-hover:text-indigo-600 flex items-center gap-2">
+                                        <span>💼</span> LinkedIn
+                                    </span>
+                                    <span class="text-xs font-medium text-slate-500 group-hover:text-indigo-700">linkedin.com/in/sandro-dzneladze &rarr;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://t.me/example_sandro" target="_blank" rel="noopener" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-indigo-50 border border-slate-200/80 hover:border-indigo-200 transition text-sm group">
+                                    <span class="font-bold text-slate-800 group-hover:text-indigo-600 flex items-center gap-2">
+                                        <span>✈️</span> Telegram
+                                    </span>
+                                    <span class="text-xs font-medium text-slate-500 group-hover:text-indigo-700">@sandro_dzneladze &rarr;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- ლოკაცია -->
+                <section id="location-details" class="bg-gradient-to-br from-indigo-50/60 to-purple-50/30 p-6 sm:p-8 rounded-3xl border border-indigo-100/80 shadow-sm space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="p-2 rounded-xl bg-indigo-100 text-indigo-700 text-sm font-bold">📍</span>
+                        <h3 class="text-lg font-bold text-slate-900">ადგილმდებარეობა</h3>
+                    </div>
+                    <div class="space-y-1.5 text-sm text-slate-600">
+                        <p><strong>ქალაქი:</strong> თბილისი, საქართველო</p>
+                        <p><strong>სატრანსპორტო ხელმისაწვდომობა:</strong> ცენტრალური უბნები, მეტროსადგურებთან ახლოს.</p>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- მარჯვენა სვეტი: საკონტაქტო ფორმა -->
+            <div class="lg:col-span-7">
+                <section id="contact-form-section" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm space-y-6">
+                    <div class="border-b border-slate-100 pb-4">
+                        <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">ონლაინ წერილი</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mt-1">ონლაინ საკონტაქტო ფორმა</h3>
+                        <p class="text-xs text-slate-500 mt-1"><em>შენიშვნა: ვარსკვლავით (*) მონიშნული ველების შევსება სავალდებულოა.</em></p>
+                    </div>
+
+                    <form action="#" method="post" enctype="multipart/form-data" class="space-y-8">
+
+                        <!-- ჯგუფი 1: გამომგზავნის მონაცემები -->
+                        <fieldset class="border border-slate-200/90 rounded-2xl p-6 bg-slate-50/40 space-y-5">
+                            <legend class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-lg">
+                                <strong>1. გამომგზავნის პირადი მონაცემები</strong>
+                            </legend>
+                            
+                            <div class="space-y-1.5">
+                                <label for="sender-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    თქვენი სახელი და გვარი (*):
+                                </label>
+                                <input type="text" id="sender-name" name="sender_name" required placeholder="მაგალითად: გიორგი ბერიძე" size="35" minlength="2" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-sm text-slate-900 transition shadow-sm">
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="sender-email" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    ელექტრონული ფოსტის მისამართი (*):
+                                </label>
+                                <input type="email" id="sender-email" name="sender_email" required placeholder="name@domain.com" size="35" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-sm text-slate-900 transition shadow-sm">
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="sender-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    ტელეფონის ნომერი:
+                                </label>
+                                <input type="tel" id="sender-phone" name="sender_phone" placeholder="+995 5XX XX-XX-XX" size="35" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-sm text-slate-900 transition shadow-sm">
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="sender-org" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    კომპანია / ორგანიზაცია:
+                                </label>
+                                <input type="text" id="sender-org" name="sender_org" placeholder="კომპანიის სახელწოდება" size="35" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-sm text-slate-900 transition shadow-sm">
+                            </div>
+                        </fieldset>
+
+                        <!-- ჯგუფი 2: შეტყობინების პარამეტრები -->
+                        <fieldset class="border border-slate-200/90 rounded-2xl p-6 bg-slate-50/40 space-y-5">
+                            <legend class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-lg">
+                                <strong>2. შეტყობინების დეტალები &amp; მიზანი</strong>
+                            </legend>
+
+                            <div class="space-y-1.5">
+                                <label for="contact-subject" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    მიმართვის თემატიკა (*):
+                                </label>
+                                <select id="contact-subject" name="contact_subject" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-sm text-slate-900 transition shadow-sm">
+                                    <option value="" disabled selected>-- გთხოვთ აირჩიოთ თემა --</option>
+                                    <optgroup label="თანამშრომლობა და ვაკანსია">
+                                        <option value="job-internship">სტაჟირება / Junior ვაკანსია</option>
+                                        <option value="freelance-project">ფრილანს პროექტი / შეკვეთა</option>
+                                        <option value="open-source-collab">ერთობლივი Open Source პროექტი</option>
+                                    </optgroup>
+                                    <optgroup label="კონსულტაცია &amp; სხვა">
+                                        <option value="ai-consulting">ხელოვნური ინტელექტის (AI) კონსულტაცია</option>
+                                        <option value="portfolio-feedback">უკუკავშირი პორტფოლიოზე</option>
+                                        <option value="general-question">ზოგადი შეკითხვა</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="space-y-2">
+                                <strong class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    მიმართვის პრიორიტეტი:
+                                </strong>
+                                <div class="flex flex-wrap gap-4 text-sm text-slate-700">
+                                    <label class="inline-flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 rounded-xl border border-slate-200 hover:border-indigo-300 transition">
+                                        <input type="radio" name="priority" value="normal" checked class="accent-indigo-600"> სტანდარტული
+                                    </label>
+                                    <label class="inline-flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 rounded-xl border border-slate-200 hover:border-indigo-300 transition">
+                                        <input type="radio" name="priority" value="high" class="accent-indigo-600"> მაღალი
+                                    </label>
+                                    <label class="inline-flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 rounded-xl border border-slate-200 hover:border-indigo-300 transition">
+                                        <input type="radio" name="priority" value="urgent" class="accent-indigo-600"> გადაუდებელი
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <strong class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    დაინტერესების სფეროები (აირჩიეთ ერთი ან რამდენიმე):
+                                </strong>
+                                <div class="space-y-2 text-sm text-slate-700">
+                                    <label class="flex items-center gap-2.5 cursor-pointer bg-white p-2.5 rounded-xl border border-slate-200 hover:border-indigo-300 transition">
+                                        <input type="checkbox" name="services[]" value="frontend" class="rounded accent-indigo-600"> 
+                                        <span>Frontend &amp; სემანტიკური HTML5</span>
+                                    </label>
+                                    <label class="flex items-center gap-2.5 cursor-pointer bg-white p-2.5 rounded-xl border border-slate-200 hover:border-indigo-300 transition">
+                                        <input type="checkbox" name="services[]" value="ai-prompting" class="rounded accent-indigo-600"> 
+                                        <span>AI &amp; Prompt Engineering</span>
+                                    </label>
+                                    <label class="flex items-center gap-2.5 cursor-pointer bg-white p-2.5 rounded-xl border border-slate-200 hover:border-indigo-300 transition">
+                                        <input type="checkbox" name="services[]" value="code-review" class="rounded accent-indigo-600"> 
+                                        <span>კოდის სტრუქტურის აუდიტი</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="space-y-1.5">
+                                    <label for="project-deadline" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                        სასურველი ვადა (თუ ეხება პროექტს):
+                                    </label>
+                                    <input type="date" id="project-deadline" name="project_deadline" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white text-sm text-slate-800 shadow-sm">
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <label for="project-budget" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                        სავარაუდო ბიუჯეტი (GEL, ასეთის არსებობისას):
+                                    </label>
+                                    <input type="number" id="project-budget" name="project_budget" min="0" step="50" placeholder="მაგ: 500" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white text-sm text-slate-800 shadow-sm">
+                                </div>
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="project-file" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    დამატებითი მასალის / ტექნიკური დავალების მიმაგრება:
+                                </label>
+                                <input type="file" id="project-file" name="project_file" accept=".pdf,.doc,.docx,.zip,.txt" class="w-full text-xs text-slate-600 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="message-content" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                                    თქვენი შეტყობინება (*):
+                                </label>
+                                <textarea id="message-content" name="message_content" rows="6" cols="45" required placeholder="დაწერეთ თქვენი შეტყობინება დეტალურად..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-sm text-slate-900 transition shadow-sm"></textarea>
+                            </div>
+                        </fieldset>
+
+                        <!-- ჯგუფი 3: დადასტურება და გაგზავნა -->
+                        <fieldset class="border border-slate-200/90 rounded-2xl p-6 bg-slate-50/40 space-y-5">
+                            <legend class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-lg">
+                                <strong>3. დადასტურება &amp; გაგზავნა</strong>
+                            </legend>
+
+                            <div class="space-y-1.5">
+                                <label class="flex items-start gap-2.5 cursor-pointer text-xs sm:text-sm text-slate-700">
+                                    <input type="checkbox" id="privacy-consent" name="privacy_consent" required class="mt-0.5 rounded accent-indigo-600"> 
+                                    <span>ვადასტურებ, რომ გაცნობილი ვარ პერსონალური მონაცემების დამუშავების წესებს (*).</span>
+                                </label>
+                            </div>
+
+                            <div class="flex flex-wrap items-center gap-3 pt-2">
+                                <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-200 hover:shadow-lg transition cursor-pointer">
+                                    <strong>&check; შეტყობინების გაგზავნა</strong>
+                                </button>
+                                <button type="reset" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm transition cursor-pointer">
+                                    &#10006; ფორმის გასუფთავება
+                                </button>
+                            </div>
+                        </fieldset>
+
+                    </form>
+                </section>
+            </div>
+
+        </div>
+
+        <!-- ხშირად დასმული კითხვები (FAQ) -->
+        <section id="faq-section" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">დახმარება</span>
+                <h3 class="text-2xl font-bold text-slate-900 mt-1">ხშირად დასმული კითხვები (FAQ)</h3>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group bg-slate-50 rounded-2xl border border-slate-200/80 p-5 transition-all open:bg-white open:shadow-sm">
+                    <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm select-none">
+                        <span>1. რა ვადაში ხდება შეტყობინებაზე პასუხის გაცემა?</span>
+                        <svg class="w-5 h-5 text-indigo-600 transform group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <p class="mt-3 pt-3 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+                        ჩვეულებრივ, შემოსულ წერილებს ვპასუხობ 24-48 საათის განმავლობაში სამუშაო დღეებში.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-50 rounded-2xl border border-slate-200/80 p-5 transition-all open:bg-white open:shadow-sm">
+                    <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm select-none">
+                        <span>2. შესაძლებელია თუ არა დისტანციური (Remote) თანამშრომლობა?</span>
+                        <svg class="w-5 h-5 text-indigo-600 transform group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <p class="mt-3 pt-3 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+                        დიახ, მზად ვარ ვიმუშაო სრულად დისტანციურ ან ჰიბრიდულ ფორმატში ნებისმიერ ლოკაციაზე.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-50 rounded-2xl border border-slate-200/80 p-5 transition-all open:bg-white open:shadow-sm">
+                    <summary class="font-bold text-slate-800 cursor-pointer flex items-center justify-between text-sm select-none">
+                        <span>3. რატომ არის ეს საიტი შექმნილი მხოლოდ სუფთა HTML-ით?</span>
+                        <svg class="w-5 h-5 text-indigo-600 transform group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </summary>
+                    <p class="mt-3 pt-3 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+                        ეს ვებ-გვერდი წარმოადგენს საუნივერსიტეტო დავალებას, რომლის მთავარი მოთხოვნა იყო 
+                        HTML5-ის სემანტიკური შესაძლებლობების, დოკუმენტის სტრუქტურის, ფორმებისა და ცხრილების 
+                        სიღრმისეული დემონსტრირება სუფთა სახით, გარე სტილებისა და სკრიპტების გარეშე.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- საიტის სარდაფი (Footer) -->
+    <footer class="bg-slate-900 text-slate-300 mt-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-slate-800">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white font-extrabold text-sm shadow-md">
+                            სძ
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">სანდრო ძნელაძე</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+                        პერსონალური პორტფოლიო შექმნილი სემანტიკური HTML5-ით და თანამედროვე Tailwind CSS სტილებით.
+                    </p>
+                </div>
+
+                <section class="md:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-200">ნავიგაცია:</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition">მთავარი</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-white transition">ჩემ შესახებ</a></li>
+                        <li><a href="projects.html" class="text-slate-400 hover:text-white transition">პროექტები</a></li>
+                        <li><a href="skills.html" class="text-slate-400 hover:text-white transition">უნარები</a></li>
+                        <li><a href="contact.html" class="text-indigo-400 font-semibold hover:text-white transition">კონტაქტი</a></li>
+                    </ul>
+                </section>
+
+                <address class="md:col-span-4 not-italic space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-200">კონტაქტი:</h4>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p>ავტორი: <strong class="text-slate-200">სანდრო ძნელაძე</strong></p>
+                        <p>ელფოსტა: <a href="mailto:sandro.dzneladze@example.ge" class="text-indigo-400 hover:underline">sandro.dzneladze@example.ge</a></p>
+                        <p>ტელ: <a href="tel:+995555123456" class="text-slate-300 hover:text-white transition">+995 (555) 12-34-56</a></p>
+                    </div>
+                </address>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; <time datetime="2026">2026</time> სანდრო ძნელაძე. ყველა უფლება დაცულია. შექმნილია სუფთა HTML-ით.</p>
+                <p>
+                    <a href="#top" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">
+                        <span>&uarr; დაბრუნება გვერდის დასაწყისში</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- მობილური მენიუს სკრიპტი -->
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                const svg = mobileBtn.querySelector('svg');
+                if (isHidden) {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                } else {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
