@@ -54,6 +54,21 @@
             background-color: #4f46e5;
             border-radius: 9999px;
         }
+        /* Mobile menu animation */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        #mobile-menu.menu-open {
+            max-height: 500px;
+            opacity: 1;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
@@ -83,13 +98,17 @@
                     <a href="projects.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">პროექტები</a>
                     <a href="skills.html" class="px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white shadow-sm flex items-center gap-1.5 transition">ტექნიკური უნარები</a>
                     <a href="contact.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">კონტაქტი</a>
+                    <a href="users.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">მომხმარებლები</a>
                 </nav>
 
                 <!-- მობილურის მენიუს ღილაკი -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" aria-label="მთავარი მენიუს გადართვა" class="p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-indigo-600 hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button id="mobile-menu-btn" type="button" aria-label="მთავარი მენიუს გადართვა" aria-expanded="false" class="p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-indigo-600 hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg id="burger-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="close-icon" class="w-6 h-6 hidden transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
@@ -98,14 +117,15 @@
         </div>
 
         <!-- მობილური მენიუ -->
-        <nav id="mobile-menu" aria-label="მობილური მენიუ" class="hidden md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md px-4 py-3 space-y-1 shadow-lg">
+        <nav id="mobile-menu" aria-label="მობილური მენიუ" class="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md px-4 space-y-1 shadow-lg">
             <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 px-3 py-1"><strong>ნავიგაცია:</strong></p>
             <ul class="space-y-1 list-none p-0 m-0">
-                <li><a href="index.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">მთავარი გვერდი</a></li>
-                <li><a href="about.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">ჩემ შესახებ</a></li>
-                <li><a href="projects.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">პროექტები</a></li>
+                <li><a href="index.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">მთავარი გვერდი</a></li>
+                <li><a href="about.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">ჩემ შესახებ</a></li>
+                <li><a href="projects.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">პროექტები</a></li>
                 <li><span class="block px-3 py-2.5 rounded-xl text-sm font-semibold bg-indigo-600 text-white">[ ტექნიკური უნარები ] (თქვენ იმყოფებით აქ)</span></li>
-                <li><a href="contact.html" class="block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">კონტაქტი</a></li>
+                <li><a href="contact.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">კონტაქტი</a></li>
+                <li><a href="users.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">მომხმარებლები</a></li>
             </ul>
         </nav>
     </header>
@@ -419,6 +439,7 @@
                         <li><a href="projects.html" class="text-slate-400 hover:text-white transition">პროექტები</a></li>
                         <li><a href="skills.html" class="text-indigo-400 font-semibold hover:text-white transition">უნარები</a></li>
                         <li><a href="contact.html" class="text-slate-400 hover:text-white transition">კონტაქტი</a></li>
+                        <li><a href="users.html" class="text-slate-400 hover:text-white transition">მომხმარებლები</a></li>
                     </ul>
                 </section>
 
@@ -444,21 +465,7 @@
         </div>
     </footer>
 
-    <!-- მობილური მენიუს სკრიპტი -->
-    <script>
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', () => {
-                const isHidden = mobileMenu.classList.toggle('hidden');
-                const svg = mobileBtn.querySelector('svg');
-                if (isHidden) {
-                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-                } else {
-                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
-                }
-            });
-        }
-    </script>
+    <!-- გარე JavaScript ფაილი -->
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="240" height="160">
+  <rect x="5" y="5" width="230" height="150" rx="8" fill="#fdfbf7" stroke="#d4af37" stroke-width="4"/>
+  <rect x="12" y="12" width="216" height="136" rx="4" fill="none" stroke="#d4af37" stroke-width="1" stroke-dasharray="4,2"/>
+  <circle cx="120" cy="40" r="16" fill="#d4af37"/>
+  <polygon points="120,28 124,36 132,37 126,43 128,51 120,46 112,51 114,43 108,37 116,36" fill="#ffffff"/>
+  <text x="120" y="75" font-family="'Times New Roman', serif" font-size="14" font-weight="bold" fill="#333333" text-anchor="middle">სერტიფიკატი</text>
+  <text x="120" y="93" font-family="Arial, sans-serif" font-size="10" fill="#666666" text-anchor="middle">HTML5 &amp; ვებ-ტექნოლოგიები</text>
+  <line x1="60" y1="102" x2="180" y2="102" stroke="#d4af37" stroke-width="1"/>
+  <text x="120" y="118" font-family="Arial, sans-serif" font-size="9" fill="#1b4d3e" font-weight="bold" text-anchor="middle">სანდრო ძნელაძე</text>
+  <text x="120" y="134" font-family="Arial, sans-serif" font-size="8" fill="#888888" text-anchor="middle">წარჩინებით დასრულებული კურსი</text>
+</svg>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="მომხმარებლების სია API-დან და შეტყობინების გაგზავნის ფორმა — სანდრო ძნელაძის პორტფოლიო.">
+    <meta name="keywords" content="სანდრო ძნელაძე, მომხმარებლები, API, fetch, პორტფოლიო">
+    <meta name="author" content="სანდრო ძნელაძე">
+    <title>სანდრო ძნელაძე — პორტფოლიო | მომხმარებლები</title>
+
+    <!-- Google Fonts: Noto Sans Georgian & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Official Tailwind CSS Browser CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Georgian"', 'Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Mobile menu animation */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        #mobile-menu.menu-open {
+            max-height: 500px;
+            opacity: 1;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- საიტის მთავარი თავფურცელი (Header) -->
+    <header id="top" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                
+                <!-- ლოგო და სათაური -->
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3 group">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white font-black text-lg shadow-md shadow-indigo-200 group-hover:scale-105 transition-transform">
+                            სძ
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-extrabold text-slate-900 tracking-tight group-hover:text-indigo-600 transition-colors">სანდრო ძნელაძე</h1>
+                            <p class="hidden sm:block text-xs text-slate-500 font-medium"><strong>პროფესია:</strong> დამწყები ვებ-დეველოპერი | IT &amp; AI ენთუზიასტი</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- მთავარი ნავიგაცია (Desktop Navigation) -->
+                <nav aria-label="მთავარი მენიუ" class="hidden md:flex items-center gap-1.5 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200/60">
+                    <a href="index.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">მთავარი</a>
+                    <a href="about.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">ჩემ შესახებ</a>
+                    <a href="projects.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">პროექტები</a>
+                    <a href="skills.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">ტექნიკური უნარები</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-white transition">კონტაქტი</a>
+                    <a href="users.html" class="px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white shadow-sm flex items-center gap-1.5 transition">მომხმარებლები</a>
+                </nav>
+
+                <!-- მობილურის მენიუს ღილაკი (Mobile Hamburger Button) -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" aria-label="მთავარი მენიუს გადართვა" aria-expanded="false" class="p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-indigo-600 hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg id="burger-icon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="close-icon" class="w-6 h-6 hidden transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- მობილური ნავიგაციის ჩამოსაშლელი მენიუ -->
+        <nav id="mobile-menu" aria-label="მობილური მენიუ" class="md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md px-4 space-y-1 shadow-lg">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 px-3 py-1"><strong>ნავიგაცია:</strong></p>
+            <ul class="space-y-1 list-none p-0 m-0">
+                <li><a href="index.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">მთავარი გვერდი</a></li>
+                <li><a href="about.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">ჩემ შესახებ</a></li>
+                <li><a href="projects.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">პროექტები</a></li>
+                <li><a href="skills.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">ტექნიკური უნარები</a></li>
+                <li><a href="contact.html" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-indigo-600 transition">კონტაქტი</a></li>
+                <li><span class="block px-3 py-2.5 rounded-xl text-sm font-semibold bg-indigo-600 text-white">[ მომხმარებლები ] (თქვენ იმყოფებით აქ)</span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- მთავარი შინაარსობრივი ნაწილი (Main) -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 space-y-16">
+
+        <!-- გვერდის სათაურის ბლოკი -->
+        <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm">
+            <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">API &amp; JavaScript</span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
+                მომხმარებლები &amp; შეტყობინებები
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed mt-3 max-w-3xl">
+                ეს გვერდი იყენებს JavaScript <code class="text-xs bg-slate-100 text-indigo-700 px-1.5 py-0.5 rounded font-mono">fetch()</code> მეთოდს 
+                გარე API-დან მონაცემების მისაღებად და გასაგზავნად. მომხმარებლების სია იტვირთება 
+                <a href="https://jsonplaceholder.typicode.com/users" target="_blank" rel="noopener" class="text-indigo-600 font-semibold hover:underline">JSONPlaceholder API</a>-დან.
+            </p>
+        </div>
+
+        <!-- სექცია 1: მომხმარებლების სია (Fetch GET) -->
+        <section id="users-section" class="space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">GET მოთხოვნა</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">მომხმარებლების სია (API)</h3>
+                <p class="text-sm text-slate-500 mt-1">მონაცემები მიიღება <code class="text-xs bg-slate-100 text-indigo-700 px-1.5 py-0.5 rounded font-mono">https://jsonplaceholder.typicode.com/users</code> ენდპოინტიდან:</p>
+            </div>
+
+            <!-- ჩატვირთვის ინდიკატორი -->
+            <div id="users-loading" class="flex items-center justify-center gap-3 py-12">
+                <svg class="animate-spin h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span class="text-lg font-semibold text-indigo-600">მონაცემები იტვირთება...</span>
+            </div>
+
+            <!-- შეცდომის შეტყობინება -->
+            <div id="users-error" class="hidden bg-red-50 border border-red-200 rounded-2xl p-6 text-center space-y-3">
+                <span class="text-3xl">⚠️</span>
+                <p class="text-red-700 font-bold text-lg">შეცდომა მოხდა!</p>
+                <p id="users-error-msg" class="text-sm text-red-600">მონაცემების ჩატვირთვა ვერ მოხერხდა. გთხოვთ, სცადოთ მოგვიანებით.</p>
+                <button id="users-retry-btn" type="button" class="mt-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-sm transition cursor-pointer">
+                    ↻ ხელახლა ცდა
+                </button>
+            </div>
+
+            <!-- მომხმარებლების ბარათები -->
+            <div id="users-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- JavaScript-ით შეივსება -->
+            </div>
+        </section>
+
+        <!-- სექცია 2: შეტყობინების გაგზავნის ფორმა (POST) -->
+        <section id="post-section" class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+                <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">POST მოთხოვნა</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">
+                    შეტყობინების გაგზავნა (API)
+                </h3>
+                <p class="text-sm text-slate-500 mt-1">
+                    გამოიყენეთ ქვემოთ მოცემული ფორმა შეტყობინების გასაგზავნად. მონაცემები იგზავნება 
+                    <code class="text-xs bg-slate-100 text-indigo-700 px-1.5 py-0.5 rounded font-mono">POST</code> მეთოდით 
+                    <code class="text-xs bg-slate-100 text-indigo-700 px-1.5 py-0.5 rounded font-mono">https://jsonplaceholder.typicode.com/posts</code> ენდპოინტზე.
+                </p>
+                <p class="text-xs text-slate-400 mt-2 italic">
+                    <em>შენიშვნა: JSONPlaceholder სიმულაციურ API-ს წარმოადგენს — მონაცემები რეალურად არ ინახება სერვერზე.</em>
+                </p>
+            </div>
+
+            <form id="post-form" class="space-y-6">
+                <fieldset class="border border-slate-200/90 rounded-2xl p-6 bg-slate-50/40 space-y-5">
+                    <legend class="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-lg">
+                        <strong>შეტყობინების ფორმა</strong>
+                    </legend>
+
+                    <div class="space-y-1.5">
+                        <label for="post-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                            თქვენი სახელი (*):
+                        </label>
+                        <input type="text" id="post-name" name="post_name" required placeholder="მაგალითად: სანდრო ძნელაძე" minlength="2" 
+                            class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-sm text-slate-900 transition shadow-sm">
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="post-message" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                            შეტყობინება (*):
+                        </label>
+                        <textarea id="post-message" name="post_message" rows="5" required placeholder="დაწერეთ თქვენი შეტყობინება აქ..." minlength="5"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-sm text-slate-900 transition shadow-sm"></textarea>
+                    </div>
+                </fieldset>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <button type="submit" id="post-submit-btn" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-200 hover:shadow-lg transition cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        <strong>შეტყობინების გაგზავნა</strong>
+                    </button>
+                    <button type="reset" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm transition cursor-pointer">
+                        ✕ ფორმის გასუფთავება
+                    </button>
+                </div>
+            </form>
+
+            <!-- გაგზავნის ინდიკატორი -->
+            <div id="post-loading" class="hidden flex items-center gap-3 py-4">
+                <svg class="animate-spin h-5 w-5 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span class="text-sm font-semibold text-indigo-600">იგზავნება...</span>
+            </div>
+
+            <!-- წარმატების შეტყობინება -->
+            <div id="post-success" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-6 space-y-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">✅</span>
+                    <p class="text-emerald-800 font-bold text-lg">წარმატებით გაიგზავნა!</p>
+                </div>
+                <p class="text-sm text-emerald-700">თქვენი შეტყობინება წარმატებით გაიგზავნა სერვერზე.</p>
+                <div id="post-response" class="bg-white/80 rounded-xl p-4 border border-emerald-100">
+                    <!-- პასუხის დეტალები JavaScript-ით შეივსება -->
+                </div>
+            </div>
+
+            <!-- შეცდომის შეტყობინება -->
+            <div id="post-error" class="hidden bg-red-50 border border-red-200 rounded-2xl p-6 space-y-2">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">❌</span>
+                    <p class="text-red-700 font-bold text-lg">გაგზავნა ვერ მოხერხდა!</p>
+                </div>
+                <p id="post-error-msg" class="text-sm text-red-600">სერვერთან კავშირი ვერ დამყარდა. გთხოვთ, სცადოთ ხელახლა.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- საიტის სარდაფი (Footer) -->
+    <footer class="bg-slate-900 text-slate-300 mt-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-slate-800">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white font-extrabold text-sm shadow-md">
+                            სძ
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">სანდრო ძნელაძე</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+                        პერსონალური პორტფოლიო შექმნილი სემანტიკური HTML5-ით და თანამედროვე Tailwind CSS სტილებით.
+                    </p>
+                </div>
+
+                <section class="md:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-200">ნავიგაცია:</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition">მთავარი</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-white transition">ჩემ შესახებ</a></li>
+                        <li><a href="projects.html" class="text-slate-400 hover:text-white transition">პროექტები</a></li>
+                        <li><a href="skills.html" class="text-slate-400 hover:text-white transition">უნარები</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition">კონტაქტი</a></li>
+                        <li><a href="users.html" class="text-indigo-400 font-semibold hover:text-white transition">მომხმარებლები</a></li>
+                    </ul>
+                </section>
+
+                <address class="md:col-span-4 not-italic space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-200">კონტაქტი:</h4>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p>ავტორი: <strong class="text-slate-200">სანდრო ძნელაძე</strong></p>
+                        <p>ელფოსტა: <a href="mailto:sandro.dzneladze@example.ge" class="text-indigo-400 hover:underline">sandro.dzneladze@example.ge</a></p>
+                        <p>ტელეფონი: <a href="tel:+995555123456" class="text-slate-300 hover:text-white transition">+995 (555) 12-34-56</a></p>
+                        <p>ადგილმდებარეობა: თბილისი, საქართველო</p>
+                    </div>
+                </address>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; <time datetime="2026">2026</time> სანდრო ძნელაძე. ყველა უფლება დაცულია.</p>
+                <p>
+                    <a href="#top" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">
+                        <span>&uarr; დაბრუნება გვერდის დასაწყისში</span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- გარე JavaScript ფაილი -->
+    <script src="script.js"></script>
+</body>
+</html>
+
